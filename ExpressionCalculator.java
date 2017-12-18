@@ -4,23 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
-* This class creates the GUI frame and interface for the calculator.
-*
-* @author Alexander Wong
-* @version 1.0
-**/
-
 
 public class ExpressionCalculator extends JFrame implements ActionListener {
 
 
 	private JTextField screen_output;
 	
-	/**
-	* This is a constructor method that instantiates an Expression calculator object using
-	* swing. Creates the gui of the calculator.
-	*/
 	public ExpressionCalculator() 
 	{
 		setTitle("Expression Calculator");
@@ -33,6 +22,7 @@ public class ExpressionCalculator extends JFrame implements ActionListener {
 		screenPanel.setLayout(new FlowLayout());
 		
 		screen_output = new JTextField(18);
+		screen_output.setBackground(Color.WHITE);
 	
 		screen_output.setEditable(false);
 		Font text_size = new Font("Arial",Font.BOLD,20);
@@ -41,7 +31,7 @@ public class ExpressionCalculator extends JFrame implements ActionListener {
 		content.add(screenPanel, BorderLayout.NORTH);
 		
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new FlowLayout());
+		buttonPanel.setLayout(new GridLayout(5,4));
 		
 		JButton zero = new JButton("0");
 		zero.addActionListener(this);
@@ -88,8 +78,8 @@ public class ExpressionCalculator extends JFrame implements ActionListener {
 		
 		screen_output.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		buttonPanel.add(backspace);
-		buttonPanel.add(negative);
+		buttonPanel.add(backspace,0,0);
+		buttonPanel.add(negative,0,1);
 		buttonPanel.add(left_p);
 		buttonPanel.add(right_p);
 		buttonPanel.add(seven);
@@ -119,12 +109,6 @@ public class ExpressionCalculator extends JFrame implements ActionListener {
 		content.add(clearPanel, BorderLayout.SOUTH);
 		
 	}
-
-	/**
-	* This method performs the actions that sets the text in the text window of the calculator.
-	* 
-	* @param ActionEvents from components inititated in the constructor.
-	*/
 	public void actionPerformed(ActionEvent e) 
 	{
 		if(e.getActionCommand().equals("0")) {

@@ -55,7 +55,6 @@ public class ExpressionSolver{
 					}catch(Exception e){
 						throw new Exception("Error: incomplete expression.");
 					}
-					System.out.println(test);
 					negative_flag = true;
 					index++;
 			
